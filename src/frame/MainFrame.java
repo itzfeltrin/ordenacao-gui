@@ -1,8 +1,10 @@
 package frame;
 
+import application.Info;
 import application.Sorting;
 import java.awt.Color;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -196,10 +198,18 @@ public class MainFrame extends javax.swing.JFrame {
                 int metodo2 = metodoDois.getSelectedIndex();
                 int ordem = Integer.parseInt(getSelectedButtonText(grupoMet));
                 int tam = Integer.parseInt(getSelectedButtonText(grupoTam));                            
-                this.sorting.sort(metodo1, ordem, tam).printValues();
+                /*this.sorting.sort(metodo1, ordem, tam).printValues();
                 System.out.println();
                 this.sorting.sort(metodo2, ordem, tam).printValues();
-                System.out.println();
+                System.out.println();*/
+                Info info1 = this.sorting.sort(metodo1, ordem, tam);
+                Info info2 = this.sorting.sort(metodo2, ordem, tam);
+                ArrayList<Info> listaInfo = new ArrayList<>();
+                listaInfo.add(info1);
+                listaInfo.add(info2);
+                FrameGrafico fg = new FrameGrafico();
+                fg.setLabels(ordem, tam);
+                fg.addGrafico(listaInfo);
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
             }
