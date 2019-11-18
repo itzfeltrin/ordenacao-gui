@@ -64,7 +64,7 @@ public class Grafico {
         CategoryDataset dataSetTempo = this.createDataSetTempo(listaInfos);
         CategoryDataset dataSetMov = this.createDataSetMov(listaInfos);
         CategoryDataset dataSetComp= this.createDataSetComp(listaInfos);
-        JFreeChart graficoTempo = this.createBarChart("Tempo", dataSetTempo);
+        JFreeChart graficoTempo = this.createBarChart("Tempo em Segundos", dataSetTempo);
         JFreeChart graficoMov = this.createBarChart("Movimentações", dataSetMov);
         JFreeChart graficoComp = this.createBarChart("Comparações", dataSetComp);
         ChartPanel painelDoGraficoTempo = new ChartPanel(graficoTempo);
